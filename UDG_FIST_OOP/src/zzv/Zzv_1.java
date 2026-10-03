@@ -76,4 +76,105 @@ public class Zzv_1 {
 		double d = Math.sqrt(Math.pow((x3 - x1), 2) + Math.pow((y3 - y1), 2));
 		System.out.printf("\nX3: %.3f\nY3: %.3f\nRastojanje: %.3f\n", x3, y3, d);
 	}
+	
+	public static void z9() {
+		
+		/* Biljeske 
+		 * 1. Paziti na opseg: Long > Int
+		 * 2. Paziti na dieljenje sa 0: do while
+		 * 3. Paziti na to da li "lijepimo" dijelove
+		 * default:	543, 130, 65
+		 */
+		
+		long a, b, c;
+		System.out.print("Molim bez 0 za a, b, c.\n");
+		do {
+			System.out.print("\nUnesite A: "); a = Math.abs(sc.nextLong());
+			System.out.print("Unesite B: "); b = Math.abs(sc.nextLong());
+			System.out.print("Unesite C: "); c = Math.abs(sc.nextLong());
+		} while((a == 0) || (b == 0) || (c == 0));
+		
+		System.out.print("\nLijepimo li?\n0:N 1:Y\n"); int glue = sc.nextInt();
+		if(glue == 0) {
+			long d = (a / c) * (b / c);
+			System.out.printf("\nBroj (ne lijepimo): %d\n", d);
+		} else {
+			long d = ((a * b) / (c * c));
+			System.out.printf("\nBroj (lijepimo): %d\n", d);
+		}
+	}
+	
+	public static void z10() {
+		
+		double d, s;
+		System.out.print("Unesite D: "); d = sc.nextDouble();
+		s = Math.sqrt(81.0 / 337.0 * d * d);
+		System.out.printf("\nP: %f\n", s * 16.0 / 9.0 * s);
+	}
+	
+	public static void z11() {
+		
+		int n;
+		System.out.print("Unesite broj: "); n = sc.nextInt();
+		System.out.printf("\nPPC: %d\nPC: %d\nR: %d\n",
+				(n / 10) % 10, n % 10, (n / 10) % 10 + n % 10);
+	}
+	
+	public static void z12() {
+		
+		int n, a, b;
+		System.out.print("Unesite broj: "); n = sc.nextInt();
+		a = n / 10; b = n % 10;
+		if (a > b)		System.out.printf("a > b: %d", a - b);
+		else if (a < b)	System.out.printf("a < b: %d", a + b);
+		else			System.out.printf("a == b: %d", a * b);
+	}
+	
+	public static void z13() {
+		
+		double r1, r2;
+		System.out.print("Unesite R1: "); r1 = Math.abs(sc.nextDouble());
+		System.out.print("Unesite R2: "); r2 = Math.abs(sc.nextDouble());
+		if ((Math.pow(r1, 2) * Math.PI) > (Math.pow(r2, 2) * Math.PI))
+			System.out.printf("\nO1: %.3f", 2.0 * r1 * Math.PI);
+		else
+			System.out.printf("\nO2: %.3f", 2.0 * r2 * Math.PI);
+	}
+	
+	public static void z14() {
+		
+		double a, b, c, min, max;
+		System.out.print("Unesite A: "); a = sc.nextDouble();
+		System.out.print("Unesite B: "); b = sc.nextDouble();
+		System.out.print("Unesite C: "); c = sc.nextDouble();
+		min = max = a;
+		if (min > b) min = b; if (max < b) max = b;
+		if (min > c) min = c; if (max < c) max = c;
+		System.out.printf("\nMIN: %.3f\nMAX: %.3f\n", min, max);
+	}
+	
+	public static void z15() {
+		
+		double x, p = 1; int n;
+		System.out.print("Unesite X: "); x = sc.nextDouble();
+		System.out.print("Unesite N: "); n = sc.nextInt();
+		for (int i = 1; i <= n; i++) p *= x;
+		System.out.printf("\nX na N: %.3f", p);
+	}
+	
+	public static void z16() {
+		
+		double c1, c2, c3, minV, s = 0; int minP;
+		System.out.print("Unesite C1: "); c1 = sc.nextDouble();
+		System.out.print("Unesite C2: "); c2 = sc.nextDouble();
+		System.out.print("Unesite C3: "); c3 = sc.nextDouble();
+		minV = c1; minP = 1;
+		if (minV > c2) { minV = c2; minP = 2; }
+		if (minV > c3) { minV = c3; minP = 3; }
+		System.out.println();
+		if (1 != minP) { System.out.printf("Proizvod #%d: %.2f €\n", 1, c1); s += c1; }
+		if (2 != minP) { System.out.printf("Proizvod #%d: %.2f €\n", 2, c2); s += c2; } 
+		if (3 != minP) { System.out.printf("Proizvod #%d: %.2f €\n", 3, c3); s += c3; }
+		System.out.printf("\nZbir: %.2f €\n", s);
+	}
 }
