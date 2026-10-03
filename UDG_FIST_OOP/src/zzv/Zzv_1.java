@@ -177,4 +177,88 @@ public class Zzv_1 {
 		if (3 != minP) { System.out.printf("Proizvod #%d: %.2f €\n", 3, c3); s += c3; }
 		System.out.printf("\nZbir: %.2f €\n", s);
 	}
+	
+	public static void z16_v2() { // Isti zadatak, samo sa 5 cijena.
+		
+		double m1, m2; int p1, p2;
+		System.out.print("Unesite C1: "); double c1 = sc.nextDouble();
+		System.out.print("Unesite C2: "); double c2 = sc.nextDouble();
+		System.out.print("Unesite C3: "); double c3 = sc.nextDouble();
+		System.out.print("Unesite C4: "); double c4 = sc.nextDouble();
+		System.out.print("Unesite C5: "); double c5 = sc.nextDouble();
+		if (c1 > c2) { m1 = c1; p1 = 1; m2 = c2; p2 = 2;
+		} else { m1 = c2; p1 = 2; m2 = c1; p2 = 1;
+		} // initial_setup: c1 & c2 ✓
+		if (c3 > m1) { m2 = m1; p2 = p1; m1 = c3; p1 = 3;
+		} else if (c3 > m2) { m2 = c3; p2 = 3;
+		} // c3 ✓
+		if (c4 > m1) { m2 = m1; p2 = p1; m1 = c4; p1 = 4;
+		} else if (c4 > m2) { m2 = c4; p2 = 4;
+		} // c4 ✓
+		if (c5 > m1) { m2 = m1; p2 = p1; m1 = c5; p1 = 5;
+		} else if (c5 > m2) { m2 = c5; p2 = 5;
+		} // c5 ✓
+		System.out.printf("\nProizvodi #%d i #%d: %.2f €\n", p1, p2, m1 + m2);
+	}
+	
+	public static void z16_v3() { // Isti zadatak, samo n cijena.
+		
+		double m1 = -1, m2 = -1; int p1 = 0, p2 = 0, n;
+		System.out.print("Broj proizvoda: "); n = sc.nextInt(); System.out.println();
+		if (n >= 2) {
+			System.out.print("[ vrijednost cijene je apsolutna ]\n");
+			for (int i = 1; i <= n; i++) {
+				System.out.printf("Unesite C%d: ", i); double cv = Math.abs(sc.nextDouble());
+				if (cv > m1) { m2 = m1; p2 = p1; m1 = cv; p1 = i;	// cv > m1
+				} else if (cv > m2) { m2 = cv; p2 = i; } 			// cv > m2
+			}
+			System.out.printf("\nProizvodi #%d i #%d: %.2f €\n", p1, p2, m1 + m2);
+		} else System.out.print("Trebaju nam 2 ili vise prozvoda.\n");
+	}
+	
+	public static void z17() {
+		
+		System.out.print("Unesite godinu: "); int g = Math.abs(sc.nextInt());
+		if ((g % 100) != 0) {
+			if ((g % 4) == 0) System.out.print("\nJeste.\n");
+			else System.out.print("\nNije.\n");
+		} else {
+			if((g % 400) == 0) System.out.print("\nJeste.\n");
+			else System.out.print("\nNije.\n");
+		}
+	}
+	
+	public static void z18() { // KS: (0, 0) gore lijevo
+		
+		int glx, gly, ddx, ddy, x, y;
+		do { 
+			System.out.print("\n[ unesite validne vrijednosti ]\n");
+			System.out.print("Unesite GLx: "); glx = Math.abs(sc.nextInt());
+			System.out.print("Unesite GLy: "); gly = Math.abs(sc.nextInt());
+			System.out.print("Unesite DDx: "); ddx = Math.abs(sc.nextInt());
+			System.out.print("Unesite DDy: "); ddy = Math.abs(sc.nextInt());
+		} while (!((ddx - glx) > 0 && (ddy - gly) > 0));
+		System.out.print("Unesite X: "); x = Math.abs(sc.nextInt());
+		System.out.print("Unesite Y: "); y = Math.abs(sc.nextInt());
+		if ((x >= glx && x <= ddx) && (y >= gly && y <= ddy))
+			System.out.print("\nPripada.\n");
+		else System.out.print("\nNe pripada.\n");
+	}
+	
+	public static void z18_v2() { // KS: (0, 0) dolje lijevo
+		
+		int glx, gly, ddx, ddy, x, y;
+		do {
+			System.out.print("\n[ unesite validne vrijednosti ]\n");
+			System.out.print("Unesite GLx: "); glx = Math.abs(sc.nextInt());
+			System.out.print("Unesite GLy: "); gly = Math.abs(sc.nextInt());
+			System.out.print("Unesite Ddx: "); ddx = Math.abs(sc.nextInt());
+			System.out.print("Unesite Ddy: "); ddy = Math.abs(sc.nextInt());
+		} while (!((ddx - glx) > 0 && (gly - ddy) > 0));
+		System.out.print("Unesite X: "); x = Math.abs(sc.nextInt());
+		System.out.print("Unesite Y: "); y = Math.abs(sc.nextInt());
+		if ((x >= glx && x <= ddx) && (y >= ddy && y <= gly))
+			System.out.print("\nPripada.\n");
+		else System.out.print("\nNe pripada.\n");
+	}
 }
