@@ -228,7 +228,7 @@ public class Zzv_1 {
 		}
 	}
 	
-	public static void z18() { // KS: (0, 0) gore lijevo
+	public static void z18() { // KS: (0, 0) gore lijevo (ekran)
 		
 		int glx, gly, ddx, ddy, x, y;
 		do { 
@@ -245,7 +245,7 @@ public class Zzv_1 {
 		else System.out.print("\nNe pripada.\n");
 	}
 	
-	public static void z18_v2() { // KS: (0, 0) dolje lijevo
+	public static void z18_v2() { // KS: (0, 0) dolje lijevo (DKS)
 		
 		int glx, gly, ddx, ddy, x, y;
 		do {
@@ -260,5 +260,67 @@ public class Zzv_1 {
 		if ((x >= glx && x <= ddx) && (y >= ddy && y <= gly))
 			System.out.print("\nPripada.\n");
 		else System.out.print("\nNe pripada.\n");
+	}
+	
+	public static void z19() {
+		
+		System.out.print("Unesite PW: "); double pw = sc.nextDouble();
+		System.out.print("Unesite PH: "); double ph = sc.nextDouble();
+		if (ph / pw >= 2) System.out.print("\nMoze.\n");
+		else System.out.print("\nNe moze.\n");
+	}
+	
+	public static void z20() {
+		
+		System.out.print("Unesite T: "); double t = sc.nextDouble();
+		if (t <= 0.0) System.out.print("\nStanje: Cvrsto.\n");
+		else if (t > 0.0 && t < 100.0) System.out.print("\nStanje: Tecno.\n");
+		else System.out.print("\nStanje: Gasovito.\n");
+	}
+	
+	public static void z21() {
+		
+		int n;
+		do { System.out.print("(n > 1) Unesite N: "); n = sc.nextInt(); }
+		while (n < 2);
+		for (int i = 2; i <= Math.sqrt(n); i++) 
+			if (n % i == 0) { System.out.print("\nNije.\n"); return; }
+		System.out.print("\nJeste.\n");
+	}
+	
+	public static void z22() {
+		
+		System.out.print("Unesite broj: "); int n = Math.abs(sc.nextInt());
+		int min = 10, max = -1;
+		while (n > 0) { int c = n % 10; n /= 10;
+			if (min > c) min = c; if (max < c) max = c;
+		} System.out.printf("\n[%d, %d] Zbir: %d", min, max, min + max);
+	}
+	
+	public static void z23() {	
+		// D - duzina terase (m), N - br. stubica, S - sirina stubica (cm)
+		double d, s; int n;
+		do { System.out.print("[ unesite validne mjere ]\n");
+			System.out.print("\nUnesite D: "); d = Math.abs(sc.nextDouble());
+			System.out.print("Unesite N: "); n = Math.abs(sc.nextInt());
+			System.out.print("Jos S: "); s = Math.abs(sc.nextDouble()) / 100.0;
+		} while (d < (n * s)); if (d == (n * s)) System.out.print("\nR: 0\n");
+		else System.out.printf("\nR: %f\n", (d - (n * s)) / (n + 1));
+	}
+	
+	public static void z24() {
+		
+		double is, po; byte na;
+		do { System.out.print("Iznos skolarine: "); is = sc.nextDouble();
+		} while (is <= 0);
+		do { System.out.print("Prosjecna ocjena: "); po = sc.nextDouble();
+		} while (po < 2.0 || po > 5.0);
+		do { System.out.print("(0:N, 1:D) Takmicenje: "); na = sc.nextByte();	
+		} while (na < 0 || na > 1);
+		if 		(po >= 4.5) System.out.printf("\nIznos: %d\n", Math.round(is * 0.6));
+		else if (na == 1) System.out.printf("\nIznos: %d\n", Math.round(is * 0.7));
+		else if (po >= 3.5) System.out.printf("\nIznos: %d\n", Math.round(is * 0.8));
+		else if (po >= 2.5) System.out.printf("\nIznos: %d\n", Math.round(is * 0.9));
+		else System.out.printf("\nIznos: %d\n", Math.round(is));
 	}
 }
