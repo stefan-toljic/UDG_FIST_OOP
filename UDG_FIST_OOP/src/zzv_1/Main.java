@@ -1,4 +1,4 @@
-package zzv;
+package zzv_1;
 
 public class Main {
 

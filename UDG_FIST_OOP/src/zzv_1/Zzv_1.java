@@ -1,4 +1,4 @@
-package zzv;
+package zzv_1;
 
 import java.util.Scanner;
 
@@ -315,7 +315,7 @@ public class Zzv_1 {
 		} while (is <= 0);
 		do { System.out.print("Prosjecna ocjena: "); po = sc.nextDouble();
 		} while (po < 2.0 || po > 5.0);
-		do { System.out.print("(0:N, 1:D) Takmicenje: "); na = sc.nextByte();	
+		do { System.out.print("(0:N, 1:D) Takmicenje: "); na = sc.nextByte();
 		} while (na < 0 || na > 1);
 		if 		(po >= 4.5) System.out.printf("\nIznos: %d\n", Math.round(is * 0.6));
 		else if (na == 1) System.out.printf("\nIznos: %d\n", Math.round(is * 0.7));
@@ -323,4 +323,6 @@ public class Zzv_1 {
 		else if (po >= 2.5) System.out.printf("\nIznos: %d\n", Math.round(is * 0.9));
 		else System.out.printf("\nIznos: %d\n", Math.round(is));
 	}
+	
+	
 }
