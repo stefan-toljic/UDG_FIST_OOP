@@ -12,8 +12,9 @@ public class Main {
 	
 	private static void test2() {
 		System.out.print("Unesite br. studenata: ");
-		final int NO_STUDENTS = new Scanner(System.in).nextInt();
-		Random r = new Random();
+		Scanner scanner = new Scanner(System.in);
+		final int NO_STUDENTS = scanner.nextInt();
+		Random r = new Random(); scanner.close();
 		char ime = 'A', prezime = 'B';
 		for(int i = 0; i < NO_STUDENTS; i++) {
 			Student s = new Student(
