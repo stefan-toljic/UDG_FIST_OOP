@@ -324,5 +324,99 @@ public class Zzv_1 {
 		else System.out.printf("\nIznos: %d\n", Math.round(is));
 	}
 	
+	public static void z25() {
+		// Validacija unosa
+		int n, s;
+		do { System.out.print("Unesite 4 cif. broj: "); n = Math.abs(sc.nextInt()); }
+		while (!(n / 1000 > 0 && n / 1000 < 10));
+		// Uslov
+		if (n % 2 == 0) {	// Paran
+			s = 0; for (int i = 0; i < 4; i++) {
+				if ((n % 10) % 2 == 0) s += n % 10; n /= 10; }
+		} else {			// Neparan
+			s = 1; for (int i = 0; i < 4; i++) {
+				if ((n % 10) % 2 != 0) s *= n % 10; n /= 10; }
+			}
+		System.out.printf("\nS: %d\n", s);
+		}
 	
+	public static void z26() {
+		// Mrav na ivici stola... 
+		System.out.print("Unesite LDx: "); int ldx = sc.nextInt();
+		System.out.print("Unesite LDy: "); int ldy = sc.nextInt();
+		System.out.print("Unesite DGx: "); int dgx = sc.nextInt();
+		System.out.print("Unesite DGy: "); int dgy = sc.nextInt();
+		System.out.print("Unesite Mx: "); int mx = sc.nextInt();
+		System.out.print("Unesite My: "); int my = sc.nextInt(); 
+		/* Da bi mrav bio na jednoj od ivica, on mora biti na:
+		 * 	- Lijeva ivica / desna ivica
+		 * 	- Donja ivica / gornja ivica */ 
+		// Horizontal check: LX | RX : Y [ ... ]
+		if (mx == ldx || mx == dgx) {
+			if (my >= ldy && my <= dgy) System.out.print("\nJeste.\n");
+			else System.out.print("\nNije.\n"); }
+		// Vertical check: DY | UY : X [ ... ]
+		else if (my == ldy || my == dgy) { 
+			if (mx >= ldx && mx <= dgx) System.out.print("\nJeste.\n");
+			else System.out.print("\nNije.\n"); }
+		else System.out.print("\nNije.\n");
+	}
+	
+	public static void z27() {
+		System.out.print("Unesite broj: "); int n = Math.abs(sc.nextInt());
+		int s = 0; do { s += n % 10; n /= 10; } while (n > 0);
+		System.out.printf("\nSuma cifara: %d\n", s);
+	}
+	
+	public static void z28() {
+		System.out.print("Unesite X: "); double x = sc.nextDouble();
+		double rez; if (x <= -7) {
+			rez = -2.0 * x + 7.0 / 2.0;
+		} else if (x < 1) {
+			rez = (Math.pow(x, 2) - 3.0 * x + 5.0) /
+					(Math.pow(x, 2) + 2.0);
+		} else if (x <= 8) {
+			rez = Math.sqrt(Math.pow(x, 2) + 2.0 * x + 2) +
+					Math.sqrt(Math.abs(3.0 / 2.0 * x - 4.0 / 7.0));
+		} else {
+			rez = Math.abs(3.0 / Math.pow(x, 2) - 11.0 * x);
+		} System.out.printf("\nRezultat: %.2f\n", rez);
+	}
+	
+	public static void z29() {
+		System.out.print("Unesite X: "); double x = sc.nextDouble();
+		System.out.print("Uneiste Y: "); double y = sc.nextDouble();
+		if (x > 0) {
+			if (y == 0) System.out.print("\nDesna X osa.\n");
+			else if (y > 0) System.out.print("\nPrvi kvadrant.\n");
+			else System.out.print("\nCetvrti kvadrant./n");
+		} else if (x == 0) {
+			if (y == 0) System.out.print("\nKoordinatni pocetak.\n");
+			else if (y > 0 ) System.out.print("\nGornja Y osa.\n");
+			else System.out.print("\nDonja Y osa.");
+		} else { 
+			if (y == 0) System.out.print("\nLijeva X osa.\n");
+			else if (y > 0) System.out.print("\nDrugi kvadrant.\n");
+			else System.out.print("\nTreci kvadrant.\n");
+		}
+	}
+	
+	public static void z30() {
+		System.out.print("Unesite N: "); double n = Math.abs(sc.nextDouble());
+		System.out.print("Unesite X: "); double x = Math.abs(sc.nextDouble());
+		System.out.printf("\nMoze da kupi: %d akcija.\n",
+				(int) (n / (x * 1.15)));
+	}
+	
+	public static void z31() {
+		final int LIMIT = 50; int s = 0;
+		System.out.print("Broj vozaca: "); int n = Math.abs(sc.nextInt());
+		for (int i = 0; i < n; i++) {
+			System.out.printf(" Unesite brzinu vozaca #%d: ", i + 1); 
+			int br = Math.abs(sc.nextInt()); if (br > LIMIT) {
+				System.out.printf(" Vozac #%d placa kaznu od: %d €\n",
+					i + 1, (br - LIMIT) * 10); s += (br - LIMIT) * 10;
+			}
+		} System.out.printf("\n Suma kazni: %d\n", s);
+	}
 }
