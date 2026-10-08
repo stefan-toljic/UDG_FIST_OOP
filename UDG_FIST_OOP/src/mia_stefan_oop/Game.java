@@ -62,7 +62,8 @@ class Player {
 	}
 
 	public int getHealth() {
-		if (0 < health || health > 100) {
+		System.out.print("_HP: " + health + "\n");
+		if (health < 0 || health > 100) {
 			System.out.print("HP ima losu vrijednost.\n");
 			return 0; }
 		else
@@ -228,25 +229,25 @@ public class Game {
 	}
 	
 	public static boolean checkCollision(Player p, Enemy e) {
-		boolean provjera = false; // ENEMY_TACKE
 		// Prva tacka (Donje lijevo tjeme Enemy-a) { X, Y }
 		if (	(p.getX() >= e.getX() && p.getX() <= (e.getX() + e.getWidth())
 			&& 	(p.getY() >= e.getY() && p.getY() <= (e.getY() + e.getHeight()))))
-				provjera = true;
+				return true;
 		// Druga tacka (Donje desno tjeme Enemy-a) { X + W, Y }
-		if (	((p.getX() + p.getWidth()) >= e.getX() && (p.getX() + p.getWidth()) <= (e.getX() + e.getWidth())
+		else if (	((p.getX() + p.getWidth()) >= e.getX() && (p.getX() + p.getWidth()) <= (e.getX() + e.getWidth())
 			&& 	(p.getY() >= e.getY() && p.getY() <= (e.getY() + e.getHeight()))))
-				provjera = true;
+				return true;
 		// Treca tacka { X, Y + H }
-		if (	(p.getX() >= e.getX() && p.getX() <= (e.getX() + e.getWidth())
+		else if (	(p.getX() >= e.getX() && p.getX() <= (e.getX() + e.getWidth())
 			&& 	((p.getY() + p.getHeight()) >= e.getY() && (p.getY() + p.getHeight()) <= (e.getY() + e.getHeight()))))
-				provjera = true;
+				return true;
 		// Cetrvrta tacka { X + W, Y + H }
-		if (	((p.getX() + p.getWidth()) >= e.getX() && (p.getX() + p.getWidth()) <= (e.getX() + e.getWidth())
+		else if (	((p.getX() + p.getWidth()) >= e.getX() && (p.getX() + p.getWidth()) <= (e.getX() + e.getWidth())
 			&& 	((p.getY() + p.getHeight()) >= e.getY() && (p.getY() + p.getHeight()) <= (e.getY() + e.getHeight()))))
-				provjera = true;
+				return true;
 		// Nema kolizije
-		return provjera;
+		System.out.print("_checkCollision: Nema kolizije!\n");
+		return false;
 	}
 	
 	public static void collidingWithPlayer() {
@@ -265,6 +266,7 @@ public class Game {
 		
 		String[] polja = s.split(";");
 		e.setType(polja[0]);
+		
 		String[] xy = polja[1].split(","); 
 		int sum = 0;
 		char[] xy_x = xy[0].toCharArray(); 
