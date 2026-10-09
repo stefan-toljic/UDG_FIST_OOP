@@ -3,6 +3,23 @@ package mia_stefan_oop;
 public class Main {
 	
 	public static void main(String args[]) {
+	
+		
+	}
+	
+	private static void collisionTest(Pravougaonik p, Pravougaonik e) {
+		System.out.print("_old_\n");
+		if (p.kolizija(e))	System.out.print("Sudarili su se.\n");
+		else				System.out.print("Nema sudara.\n");
+	}
+	
+	private static void collisionTestV2(Pravougaonik p, Pravougaonik e) {
+		System.out.print("_new_\n");
+		if (p.kolizijaV2(e))	System.out.print("Sudarili su se.\n");
+		else					System.out.print("Nema sudara.\n");
+	}
+	
+	private static void testKolizije() {
 		// Test 1 - FALSE
 		Pravougaonik p1 = new Pravougaonik(0, 0, 10, 10);
 		Pravougaonik e1 = new Pravougaonik(20, 20, 5, 5);
@@ -33,18 +50,6 @@ public class Main {
 		collisionTestV2(p3, e3); // TRUE
 		collisionTestV2(p4, e4); // TRUE
 		collisionTestV2(p5, e5); // TRUE
-		collisionTestV2(p6, e6); // TRUE		
-	}
-	
-	private static void collisionTest(Pravougaonik p, Pravougaonik e) {
-		System.out.print("_old_\n");
-		if (p.kolizija(e))	System.out.print("Sudarili su se.\n");
-		else				System.out.print("Nema sudara.\n");
-	}
-	
-	private static void collisionTestV2(Pravougaonik p, Pravougaonik e) {
-		System.out.print("_new_\n");
-		if (p.kolizijaV2(e))	System.out.print("Sudarili su se.\n");
-		else					System.out.print("Nema sudara.\n");
+		collisionTestV2(p6, e6); // TRUE	
 	}
 }

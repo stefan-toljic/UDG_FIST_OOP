@@ -292,5 +292,7 @@ public class Game {
 		for (int i = 0; i < dmg.length; i++)
 			sum += dmg[i] - '0';
 		e.setDamage(sum);
+		
+		enemies.add(e); // LELE, ovo zaboravih...
 	}
 }

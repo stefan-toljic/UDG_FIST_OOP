@@ -7,7 +7,7 @@ public class Pravougaonik {
 	private int visina;
 
 	public Pravougaonik(Tacka dl, int sirina, int visina) {
-		this.dl = dl;
+		setDl(dl);
 		setSirina(sirina);	// Nazalost mora se...
 		setVisina(visina);	// ... validacije jer.
 	}
@@ -21,7 +21,8 @@ public class Pravougaonik {
 	}
 
 	public void setDl(Tacka dl) {
-		this.dl = dl;
+		if (dl == null) { System.out.print("_setDl: null pointer\n");
+			return; } this.dl = dl; // IS_NULL ? return : setDl
 	}
 
 	public int getSirina() {
@@ -81,14 +82,14 @@ public class Pravougaonik {
 	
 	public boolean kolizijaV2(Pravougaonik p) {
 		// Tacke: P[DL, GD], E[DL, GD]
-		final int P_DL_X = getDl().getX();
-		final int E_DL_X = p.getDl().getX();
-		final int P_GD_X = getDl().getX() + getSirina();
-		final int E_GD_X = p.getDl().getX() + p.getSirina();
-		final int P_DL_Y = getDl().getY();
-		final int E_DL_Y = p.getDl().getY();
-		final int P_GD_Y = getDl().getY() + getVisina();
-		final int E_GD_Y = p.getDl().getY() + p.getVisina();
+		final int	P_DL_X = getDl().getX(),
+				  	E_DL_X = p.getDl().getX(),
+				  	P_GD_X = getDl().getX() + getSirina(),
+				  	E_GD_X = p.getDl().getX() + p.getSirina(),
+				  	P_DL_Y = getDl().getY(),
+				  	E_DL_Y = p.getDl().getY(),
+				  	P_GD_Y = getDl().getY() + getVisina(),
+					E_GD_Y = p.getDl().getY() + p.getVisina();
 		// Provjera preklapanja osa
 		if (	(E_DL_X <= P_GD_X && E_GD_X >= P_DL_X)
 			&&	(E_DL_Y <= P_GD_Y && E_GD_Y >= P_DL_Y))
