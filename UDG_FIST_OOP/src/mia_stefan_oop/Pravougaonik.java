@@ -5,6 +5,8 @@ public class Pravougaonik {
 	private Tacka dl;
 	private int sirina;
 	private int visina;
+	
+	public Pravougaonik() { } // default
 
 	public Pravougaonik(Tacka dl, int sirina, int visina) {
 		setDl(dl);

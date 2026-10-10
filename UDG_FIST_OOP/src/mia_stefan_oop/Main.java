@@ -4,7 +4,7 @@ public class Main {
 	
 	public static void main(String args[]) {
 	
-		
+		gameTest1();
 	}
 	
 	private static void collisionTest(Pravougaonik p, Pravougaonik e) {
@@ -51,5 +51,9 @@ public class Main {
 		collisionTestV2(p4, e4); // TRUE
 		collisionTestV2(p5, e5); // TRUE
 		collisionTestV2(p6, e6); // TRUE	
+	}
+	
+	private static void gameTest1() {
+		PlayerT igrac = new PlayerT();
 	}
 }

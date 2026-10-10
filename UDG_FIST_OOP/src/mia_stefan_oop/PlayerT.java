@@ -9,6 +9,8 @@ public class PlayerT extends Pravougaonik {
 	// Pomocne
 	private ArrayList<EnemyT> napadaci;
 	
+	public PlayerT() { } // default
+	
 	public PlayerT(String name, int x, int y, int sirina, int visina, int health) {
 		super(x, y, sirina, visina);
 		setName(name);

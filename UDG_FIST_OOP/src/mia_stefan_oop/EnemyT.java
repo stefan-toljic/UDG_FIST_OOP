@@ -5,6 +5,8 @@ public class EnemyT extends Pravougaonik {
 	private String type;
 	private int damage;
 	
+	public EnemyT() { } // default
+	
 	public EnemyT(String type, int x, int y, int sirina, int visina, int damage) {
 		super(x, y, sirina, visina);
 		setType(type);
