@@ -8,9 +8,7 @@ public class PlayerT extends Pravougaonik {
 	private int health;
 	// Pomocne
 	private ArrayList<EnemyT> napadaci;
-	
-	public PlayerT() { } // default
-	
+			
 	public PlayerT(String name, int x, int y, int sirina, int visina, int health) {
 		super(x, y, sirina, visina);
 		setName(name);
@@ -23,7 +21,7 @@ public class PlayerT extends Pravougaonik {
 	}
 
 	public void setName(String name) {
-		if (name == null) {	// zasto ne type.equals(null)? -> NullPointerException
+		if (name == null) {	// zasto ne name.equals(null)? -> NullPointerException
 			System.out.print("_setName: prazan string\n");
 			this.name = ""; return;	// podesavam + prekidam
 		} this.name = name;	// validacija prosla

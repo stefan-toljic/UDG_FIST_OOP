@@ -7,13 +7,13 @@ public class GameT {
 	private PlayerT igrac;
 	private ArrayList<EnemyT> neprijatelji;
 	private String log;
-	
-	public GameT() { log = ""; neprijatelji = new ArrayList<EnemyT>(); }
+		
+	public GameT() { setNeprijatelji(new ArrayList<EnemyT> ()); log = ""; }
 	
 	public GameT(PlayerT igrac, ArrayList<EnemyT> neprijatelji) {
-		this();	// Kako je ovo kul...
+		this();
 		setIgrac(igrac);
-		this.neprijatelji = neprijatelji;
+		setNeprijatelji(neprijatelji);
 	}
 	
 	// Get/Set
@@ -41,14 +41,14 @@ public class GameT {
 	}
 	
 	private void updateLog(String entry) { log += entry; }
-	
-	private void showLog() { System.out.println(log); }
-	
+		
 	// Custom
 	public void decreaseHealth(EnemyT e) {
 		if (igrac.getHealth() < e.getDamage()) {
 			System.out.print("_decreaseHealth: hp can't drop below 0\n");
-			return; } igrac.setHealth(igrac.getHealth() - e.getDamage());
+			System.out.print("... podesavam hp na 0...\n");
+			igrac.setHealth(0); return; }	// HP < DMG ? set 0 : HP - DMG
+		igrac.setHealth(igrac.getHealth() - e.getDamage());
 		updateLog(	// "<BUM!> [name] (HP=...) hit by [type] (DMG=...)\n"
 			"<BUM!> [" + igrac.getName() + "] (HP=" + igrac.getHealth() +
 			") hit by [" + e.getType() + "] (DMG=" + e.getDamage() + ")\n");
@@ -58,7 +58,7 @@ public class GameT {
 		if (e == null) { System.out.print("_addEnemy: null pointer\n");
 			return; } neprijatelji.add(e);	// IS_NULL ? return : addEnemy
 		updateLog(	// "<DODAT_E!> [type] (DMG=...)\n"
-			"<DODAT_E! [" + e.getType() + "] (DMG=" + e.getDamage() + ")\n");
+			"<DODAT_E!> [" + e.getType() + "] (DMG=" + e.getDamage() + ")\n");
 	}
 	
 	public void addEnemy(String s) {
@@ -67,6 +67,8 @@ public class GameT {
 	
 	public ArrayList<EnemyT> findByType(String s) {
 		ArrayList<EnemyT> found = new ArrayList<EnemyT>();
+		if (s == null) { System.out.print("_findByType: null pointer\n"); 
+			System.out.print("... vracam praznu listu...\n"); return found; }
 		for (EnemyT e : neprijatelji)
 			if (e.getType().contains(s)) found.add(e);
 		if (found.size() == 0)System.out.print("_findByType: 0 found\n");
@@ -88,5 +90,6 @@ public class GameT {
 	
 	public void resolveCollisions() {
 		for (EnemyT e : igrac.getNapadaci()) decreaseHealth(e);
+		igrac.getNapadaci().clear();	// Cistimo listu napadaca
 	}
 }
