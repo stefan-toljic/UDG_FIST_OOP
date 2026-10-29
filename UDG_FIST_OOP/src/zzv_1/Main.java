@@ -37,6 +37,11 @@ public class Main {
 //		Zzv_1.z28();
 //		Zzv_1.z29();
 //		Zzv_1.z30();
-		Zzv_1.z31();
+//		Zzv_1.z31();
+//		Zzv_1.z32();
+//		Zzv_1.z33();
+//		Zzv_1.z34();
+//		Zzv_1.z35();
+		Zzv_1.z36();
 	}
 }

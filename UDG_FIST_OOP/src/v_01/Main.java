@@ -1,4 +1,4 @@
-package cas_01;
+package v_01;
 
 import java.util.Scanner;
 

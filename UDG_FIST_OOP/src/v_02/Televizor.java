@@ -1,4 +1,4 @@
-package cas_02;
+package v_02;
 
 public class Televizor {
 

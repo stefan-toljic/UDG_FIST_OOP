@@ -419,4 +419,43 @@ public class Zzv_1 {
 			}
 		} System.out.printf("\n Suma kazni: %d\n", s);
 	}
+	
+	public static void z32() {
+		System.out.print("Broj zaposlenih: "); int n = Math.abs(sc.nextInt());
+		double porez = 0.0, p; for (int i = 0; i < n; i++) {
+			System.out.print("Unesite platu: "); p = Math.abs(sc.nextDouble());
+			if (p <= 1000.0) porez += p * 0.1; else porez += p * 0.2;
+		} System.out.printf("\nUkupan porez: %.2f\n", porez);
+	}
+	
+	public static void z33() {
+		System.out.print("Unesite broj: "); int n = Math.abs(sc.nextInt());
+		float sum = 0.0f; int i = 0; while (n > 0) { sum += n % 10; i++; 
+		n /= 10; } System.out.printf("\nAS = %.2f\n", sum / i);
+	}
+	
+	public static void z34() {
+		System.out.print("Broj dana: "); int n = Math.abs(sc.nextInt());
+		System.out.println(); int last = 0; for (int i = 0; i < n; i++) { 
+			System.out.print("Unesite t: "); float t = sc.nextFloat(); 
+			if (t < 0) last = i + 1; }
+		System.out.printf("\nPoslednji dan sa - temp: %d\n", last);
+	}
+	
+	public static void z35() {
+		System.out.print("Br. karata: "); int n = Math.abs(sc.nextInt());
+		if (n < 2) { System.out.print("\nMarko ima < 2 karte.\n"); return; }
+		int p1 = -1, p0 = -1; for (int i = 0; i < n; i++) { int z;
+			do { System.out.print("Znak (br): "); z = Math.abs(sc.nextInt());
+			} while (z == 0); if ((z % 2 == 0 && (p1 != (i - 1) && p1 != -1))
+							   || (z % 2 != 0 && (p0 != (i - 1) && p0 != -1)))
+				{ System.out.print("\nLose je slozio*.\n"); return; }
+			if (z % 2 == 0) p1 = i; else p0 = i;
+		} if (p1 > p0 && p0 != -1) System.out.print("\nLose je slozio**.\n");
+		else System.out.print("\nDobro je slozio.\n");
+	}
+	
+	public static void z36() {
+		
+	}
 }

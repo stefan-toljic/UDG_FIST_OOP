@@ -1,8 +1,8 @@
-package cas_02;
+package v_03;
 
 public class Main {
 
 	public static void main(String args[]) {
-		System.out.println("___CAS_02___\n");
-	}
+		System.out.println("___CAS_03___\n");
+	}	
 }
