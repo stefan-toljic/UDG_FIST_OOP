@@ -47,7 +47,7 @@ public class Main {
 		// Ne razumijem sta je fiksna komponenta, a sta nije
 		// Da li je za svaki format uvijek zajednicko MM DD YYYY???
 		String test = "11/03/2026";
-		String format = "MM/DD/YYY";
+		String format = "MM/DD/YYYY";
 		String zeljeniFormat = "DD-MM-YYYY";
 		System.out.println(test);
 		System.out.println(konvertujDatum(test, format, zeljeniFormat));
