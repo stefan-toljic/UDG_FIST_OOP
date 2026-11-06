@@ -37,7 +37,7 @@ public class Datum {
 		String sm = date.substring(im, im + MJESEC.length());
 		String sg = date.substring(ig, ig + GODINA.length());
 		fo = fo.replace(DAN, sd); fo = fo.replace(MJESEC, sm);
-		fo = fo.replace(GODINA, sg); return fo; 
+		fo = fo.replace(GODINA, sg); return fo;
 	}
 	/* TEST */
 	public static void main(String args[]) {
